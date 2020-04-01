@@ -1,0 +1,20 @@
+tusd:
+  file_path: "./uploads"
+  url_path: "/files/"
+  url_addr: "0.0.0.0:8080"
+
+db:
+  file_path: "./uploads"
+  file_name: "data.db"
+
+syr:
+  url_path: "http://syr.com/v1/ch_upload"
+  file_path: "./uploads"
+  field_form: "attachment"
+  file_ext: ""
+  url_auth: "http://syr.com/v1/signin"
+  token_field: "message"
+  token_header: "yadro "
+
+syr_login: ""
+syr_password: ""

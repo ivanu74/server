@@ -1,0 +1,44 @@
+com.yadro.Commons.with(this) {
+  def image = 'registry.yadro.com/sys/ch-server'
+  def container = 'ch-server'
+  def ssh = 'ssh root@sys-test.dev.yadro.com'
+  withBitbucketNotification {
+    node('docker && x86_64') {
+      checkoutScm()
+      env.IMAGE = "${image}-${ciEnv.CI_BUILD_ARCH}:v${scmInfo.commitsCount}"
+      env.CONTAINER = container
+      env.SSH = ssh
+      stage ("Build") {
+          sh "docker build -t $IMAGE ."
+      }
+      stage("Docker push") {
+          sh "docker push $IMAGE | cat"
+      }
+      stage("Deploy") {
+          sh '$SSH \
+            "docker ps | grep $CONTAINER && \
+            docker stop $CONTAINER" | cat'
+          sh '$SSH \
+            "docker images | grep $IMAGE && \
+            docker rmi $IMAGE" | cat'
+          sh '$SSH \
+            "docker run -d --rm -p 8765:8080 --name $CONTAINER \
+            -v uploads:/uploads \
+            $IMAGE"'
+      }
+    }
+
+    node('docker && ppc64le') {
+      checkoutScm()
+      env.IMAGE = "${image}-${ciEnv.CI_BUILD_ARCH}:v${scmInfo.commitsCount}"
+      env.CONTAINER = container
+      env.SSH = ssh
+      stage ("Build") {
+          sh "docker build -t $IMAGE ."
+      }
+      stage("Docker push") {
+          sh "docker push $IMAGE | cat"
+      }
+    }
+  }
+}

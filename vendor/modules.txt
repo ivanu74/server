@@ -1,0 +1,30 @@
+# github.com/BurntSushi/toml v0.3.1
+github.com/BurntSushi/toml
+# github.com/bmizerany/pat v0.0.0-20170815010413-6226ea591a40
+github.com/bmizerany/pat
+# github.com/boltdb/bolt v1.3.1
+github.com/boltdb/bolt
+# github.com/davecgh/go-spew v1.1.1
+github.com/davecgh/go-spew/spew
+# github.com/jinzhu/configor v1.1.1
+github.com/jinzhu/configor
+# github.com/pkg/errors v0.8.1
+github.com/pkg/errors
+# github.com/pmezard/go-difflib v1.0.0
+github.com/pmezard/go-difflib/difflib
+# github.com/stretchr/objx v0.1.1
+github.com/stretchr/objx
+# github.com/stretchr/testify v1.4.0
+github.com/stretchr/testify/mock
+github.com/stretchr/testify/assert
+# github.com/tus/tusd v1.0.2
+github.com/tus/tusd/pkg/filelocker
+github.com/tus/tusd/pkg/filestore
+github.com/tus/tusd/pkg/handler
+github.com/tus/tusd/internal/uid
+# golang.org/x/sys v0.0.0-20190507160741-ecd444e8653b
+golang.org/x/sys/unix
+# gopkg.in/Acconut/lockfile.v1 v1.1.0
+gopkg.in/Acconut/lockfile.v1
+# gopkg.in/yaml.v2 v2.2.4
+gopkg.in/yaml.v2
